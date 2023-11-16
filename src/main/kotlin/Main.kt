@@ -43,8 +43,8 @@ fun main(args: Array<String>) {
     val maxFes = args[3].toIntOrNull() ?:0
 
     val problem = selectProblem(dimensions, maxFes)
-    val algorithm = Algorithm(problem)
-    algorithm.run()
+    val randomSearch = RandomSearch(problem)
+    randomSearch.run()
 
     optimums(problem)
 }

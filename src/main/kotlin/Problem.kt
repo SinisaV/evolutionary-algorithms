@@ -17,4 +17,23 @@ abstract class Problem(
         }
         return Solution(x, evaluate(x))
     }
+
+    fun isFeasible(s : Solution): Boolean {
+        for (i in 0 until numberOfDimensions) {
+            if (s.x[i] < lowerBound[i] || s.x[i] > upperBound[i]) {
+                return false
+            }
+        }
+        return true
+    }
+
+    fun setFeasible(s : Solution) {
+        for (i in 0 until numberOfDimensions) {
+            if (s.x[i] < lowerBound[i]) {
+                s.x[i] = lowerBound[i]
+            } else if (s.x[i] > upperBound[i]) {
+                s.x[i] = upperBound[i]
+            }
+        }
+    }
 }
