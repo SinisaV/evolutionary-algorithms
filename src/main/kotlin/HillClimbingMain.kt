@@ -13,7 +13,7 @@ fun main() {
     )
 
     problems.forEach { problem ->
-        val statistic = Statistic(problem)
+        val statistic = Statistic(problem, HillClimbing(problem, 0.5))
         statistic.run()
         //println("----")
     }

@@ -1,4 +1,4 @@
-class RandomSearch(private val problem: Problem) : Algorithm() {
+class RandomSearch(private val problem: Problem) : Algorithm<Unit>() {
     override fun run() {
         bestSolution = null
         problem.currentFes = 0

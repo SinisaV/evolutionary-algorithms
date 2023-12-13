@@ -1,4 +1,4 @@
-class HillClimbing(private val problem: Problem, private val stepSize : Double) : Algorithm() {
+class HillClimbing(private val problem: Problem, private val stepSize : Double) : Algorithm<Unit>() {
     private var globalBestSolution: Solution? = null
 
     override fun run() {

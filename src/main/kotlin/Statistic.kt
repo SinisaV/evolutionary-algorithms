@@ -1,13 +1,13 @@
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-class Statistic (private val problem: Problem, private val runs: Int = 100) {
+class Statistic (private val problem: Problem, private val algorithm: Algorithm<*> ,private val runs: Int = 50) {
     fun run() {
         val allSolutions = mutableListOf<Solution>()
 
         for (i in 0 until runs) {
-            val algorithm = HillClimbing(problem, 0.6)
-            algorithm.run()
+            //val algorithm = PSO(problem, 0.7, 2.0, 2.0)
+            val bestS = algorithm.run()
             val bestSolution = algorithm.bestSolution
 
             if (bestSolution != null) {
