@@ -31,7 +31,7 @@ fun main() {
             results.add(result)
         }
 
-        val outputFile = File("PSO-Vucetic-${problem.name}D${problem.numberOfDimensions}.txt")
+        val outputFile = File("PSO-Vucetic_${problem.name}D${problem.numberOfDimensions}.txt")
         outputFile.printWriter().use { writer ->
             for (solution in results) {
                 writer.println(solution.fitness)

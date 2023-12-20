@@ -33,7 +33,7 @@ class PSO(private val problem: Problem, private val w: Double, private val c1: D
             //println(globalBestSolution!!.fitness)
         }
 
-        val terminationCriteria = problem.maxFes - popSize
+        val terminationCriteria = (problem.maxFes - popSize) / popSize
 
         repeat(terminationCriteria) {
             for (i in 0 until particles.size) {
@@ -59,6 +59,7 @@ class PSO(private val problem: Problem, private val w: Double, private val c1: D
                 //println("particles[i].fitness: ${particles[i].fitness}")
                 if (newFitness < particles[i].fitness) {
                     particles[i].fitness = newFitness
+                    particles[i].pBest = particles[i].x.clone()
                     if (particles[i].fitness < globalBestSolution!!.fitness) {
 
                         globalBestSolution = ParticleSolution(

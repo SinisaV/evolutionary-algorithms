@@ -1,7 +1,7 @@
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-class Statistic (private val problem: Problem, private val algorithm: Algorithm<*> ,private val runs: Int = 50) {
+class Statistic (private val problem: Problem, private val algorithm: Algorithm<*> ,private val runs: Int = 100) {
     fun run() {
         val allSolutions = mutableListOf<Solution>()
 
@@ -21,7 +21,7 @@ class Statistic (private val problem: Problem, private val algorithm: Algorithm<
         val mean = calculateMean(allSolutions.map { it.fitness })
         val stdDev = calculateStandardDeviation(allSolutions.map { it.fitness })
 
-        println(problem.name + " min: " + minFitness + " mean: " + mean + " std: " + stdDev)
+        println(problem.name + " D(${problem.numberOfDimensions})" + " MaxFES(${problem.maxFes})" + " min: " + minFitness + " mean: " + mean + " std: " + stdDev)
     }
 
     private fun calculateMean(data: List<Double>): Double {
